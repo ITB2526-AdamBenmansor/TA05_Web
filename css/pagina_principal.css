@@ -1,0 +1,214 @@
+/* =========================================
+   ESTILOS COMPLETOS (HEADER GRANDE + SIDEBAR COMPLETA)
+   ========================================= */
+
+:root {
+    --bg-dark: #0f172a;
+    --bg-panel: #1e293b;
+    --accent: #38bdf8;
+    --text-main: #f1f5f9;
+    --text-dim: #94a3b8;
+    --font-main: 'Inter', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    display: flex; flex-direction: column; min-height: 100vh;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* --- HEADER --- */
+.main-header {
+    width: 100%;
+    height: 160px; /* ALTO FORZADO */
+    background-color: #020617;
+    /* Activa la siguiente línea si tienes la imagen header-bg.jpg en la carpeta img */
+    /* background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('../img/header-bg.jpg'); background-size: cover; */
+
+    display: flex; align-items: center; padding: 0 3rem;
+    position: relative; z-index: 1000;
+    border-bottom: 2px solid rgba(56, 189, 248, 0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.header-left {
+    display: flex; align-items: center; gap: 30px;
+    position: absolute; left: 3rem; z-index: 1002;
+}
+
+.header-title {
+    width: 100%; text-align: center; font-size: 2.5rem; font-weight: 800; color: white;
+    text-transform: uppercase; letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.6); pointer-events: none; margin: 0;
+}
+
+.menu-trigger { cursor: pointer; display: flex; flex-direction: column; gap: 6px; padding: 10px; }
+.menu-trigger span { width: 40px; height: 4px; background: white; border-radius: 4px; transition: 0.3s; }
+.menu-trigger:hover span { background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+.header-logo {
+    width: 130px; height: auto; filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.4));
+    transition: transform 0.3s;
+}
+.header-logo:hover { transform: scale(1.1); filter: drop-shadow(0 0 15px var(--accent)); }
+
+/* --- SIDEBAR COMPLETA --- */
+.cyber-sidebar {
+    position: fixed; top: 0; left: -350px; width: 320px; height: 100vh;
+    background: rgba(15, 23, 42, 0.98); border-right: 1px solid var(--accent);
+    padding: 2rem; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000;
+    box-shadow: 10px 0 50px rgba(0,0,0,0.5); overflow-y: auto; /* Scroll si hay muchos items */
+}
+.cyber-sidebar.active { left: 0; }
+
+.sidebar-content { margin-top: 3rem; }
+.sidebar-content h3 { color: var(--accent); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.cyber-sidebar ul { list-style: none; padding: 0; margin-top: 1rem; }
+
+/* Estilos de Botones del Menú */
+.cyber-button {
+    display: block; padding: 10px 12px; color: var(--text-dim); text-decoration: none;
+    border-radius: 6px; margin-bottom: 2px; transition: 0.2s; font-size: 0.95rem;
+}
+.cyber-button:hover, .cyber-button.active { background: rgba(56, 189, 248, 0.15); color: var(--accent); padding-left: 15px; }
+.cyber-button.highlight { color: #22c55e; } /* Color especial para los proyectos destacados */
+
+/* Submenús desplegables */
+details { margin-bottom: 5px; }
+details > summary {
+    cursor: pointer; padding: 10px; color: var(--accent); font-weight: bold;
+    list-style: none; border-radius: 5px; transition: background 0.2s;
+}
+details > summary:hover { background: rgba(255,255,255,0.05); }
+.submenu { margin-left: 15px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 5px; }
+
+/* --- CONTENIDO Y TARJETAS --- */
+#main-container { max-width: 1300px; margin: 0 auto; padding: 3rem 2rem; width: 100%; transition: 0.3s; }
+
+.intro-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+
+.intro-panel {
+    background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s ease;
+}
+.intro-panel:hover {
+    transform: translateY(-5px) scale(1.02); border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.panel-header {
+    background: rgba(56, 189, 248, 0.1); padding: 15px 25px;
+    font-family: var(--font-code); color: var(--accent); font-weight: bold;
+    display: flex; align-items: center; gap: 10px;
+}
+.status-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; }
+.status-dot.alert { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.panel-body { padding: 2rem; line-height: 1.7; color: var(--text-dim); }
+.panel-body strong { color: white; }
+
+.page-subtitle {
+    text-align: center; color: var(--accent); font-family: var(--font-code);
+    margin: 2rem 0 3rem 0; letter-spacing: 3px; font-weight: bold;
+}
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+
+.project-card {
+    height: 300px; background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; text-decoration: none; color: white;
+    position: relative; overflow: hidden; transition: all 0.4s ease;
+}
+.card-content { width: 100%; padding: 2rem; z-index: 2; }
+.project-card h3 { font-size: 2rem; margin: 0; transition: 0.3s; }
+.card-description {
+    margin-top: 15px; color: var(--text-dim); font-size: 0.95rem;
+    opacity: 0; transform: translateY(20px); transition: 0.4s; height: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px); background: rgba(30, 41, 59, 0.95);
+    border-color: var(--accent); box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15);
+}
+.project-card:hover h3 { color: var(--accent); transform: translateY(-5px); }
+.project-card:hover .card-description { opacity: 1; transform: translateY(0); height: auto; }
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    .main-header { height: 100px; padding: 0 1rem; }
+    .header-left { position: relative; left: 0; }
+    .header-title { display: none; }
+    .header-logo { width: 80px; }
+}
+footer { text-align: center; padding: 2rem; color: #475569; margin-top: auto; }
+
+/* =======================================================
+   NUEVO: EFECTOS DE CLICK Y ESTADO ACTIVO
+   ======================================================= */
+
+/* 1. EFECTO CLICK EN BOTONES DEL MENÚ
+   Al mantener pulsado, se encoge y cambia a azul intenso */
+.cyber-button:active {
+    background-color: var(--accent); /* Fondo Azul Cyan */
+    color: #0f172a; /* Texto oscuro para contraste */
+    transform: scale(0.95); /* Se encoge un 5% */
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+/* 2. EFECTO CLICK EN LOS TÍTULOS DESPLEGABLES (Summary) */
+details > summary:active {
+    transform: scale(0.98);
+    background-color: rgba(56, 189, 248, 0.2);
+}
+
+/* 3. ESTADO "ABIERTO" DE LOS DESPLEGABLES
+   Cuando despliegas una categoría, esta se queda verde */
+details[open] > summary {
+    color: #22c55e; /* Verde Matrix */
+    background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent);
+    border-left: 3px solid #22c55e; /* Línea verde a la izquierda */
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+/* 4. EFECTO CLICK EN LAS TARJETAS DE PROYECTO
+   Es importante usar !important en el transform para ganar al hover */
+.project-card:active {
+    transform: scale(0.97) translateY(-5px) !important;
+    border-color: #22c55e; /* Borde verde al clickar */
+    background-color: rgba(15, 23, 42, 1);
+    box-shadow: inset 0 0 20px rgba(34, 197, 94, 0.2); /* Brillo interior */
+}
+
+.project-card:active h3 {
+    color: #22c55e; /* Título verde al clickar */
+}
+/* =======================================================
+   NUEVO: DIFUMINADO GLOBAL (HEADER + FOOTER + CONTENIDO)
+   ======================================================= */
+
+/* Quan el body té la classe 'is-menu-open' (afegida pel JS),
+   aplica el filtre a TOTS els fills directes del body...
+   EXCEPTE (:not) al propi menú lateral (#sidebar).
+*/
+body.is-menu-open > *:not(#sidebar) {
+    filter: blur(5px);
+    pointer-events: none; /* Evita clicks en el contingut difuminat */
+    transition: filter 0.4s ease; /* Suavitza l'aparició del difuminat */
+}
+
+/* Opcional: Assegurar que els elements es difuminin suaument
+   quan es tanca el menú també.
+*/
+body > *:not(#sidebar) {
+    transition: filter 0.4s ease;
+}

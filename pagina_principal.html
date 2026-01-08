@@ -1,65 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Administració de Sistemes (Ciberseguretat)</title>
-  <link rel="stylesheet" href="css/porfoli.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio - Adam Ben Mansor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pagina_principal.css">
 </head>
 <body>
-  <header>
-    <div class="logo">LOGO</div>
-    <h1>Administració de Sistemes (Ciberseguretat)</h1>
-  </header>
 
-  <div class="container">
-    <div class="project-list">
-      <h3>Llista de Projectes</h3>
-      <ul>
-        <li>Projecte 1: Xarxa d'enrutament a Packet Tracer</li>
-        <li>Projecte 2: Programa de manteniment de formularis</li>
-        <li>Projecte 3: Gestió d'usuaris i directoris en Linux</li>
-        <li>Projecte 4: Disseny d'una base de dades d'un aeroport</li>
-      </ul>
+    <div class="cyber-sidebar" id="sidebar" onmouseleave="closeMenu()">
+        <div class="sidebar-content">
+            <h3>NAVIGATION</h3>
+            <ul>
+                <li><a href="pagina_principal.html" class="cyber-button active">🏠 Inicio</a></li>
+
+                <li class="dropdown-item">
+                    <details>
+                        <summary>⚙️ SysAdmin</summary>
+                        <ul class="submenu">
+                            <li><a href="#" class="cyber-button">Active Directory</a></li>
+                            <li><a href="#" class="cyber-button">Hardening Web</a></li>
+                            <li><a href="#" class="cyber-button">Docker Labs</a></li>
+                            <li><a href="#" class="cyber-button">Linux Backups</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li class="dropdown-item">
+                    <details open> <summary>🌐 Networks</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte1.html" class="cyber-button highlight">» Wi-Fi Audit (P1)</a></li>
+                            <li><a href="#" class="cyber-button">VLANs Cisco</a></li>
+                            <li><a href="#" class="cyber-button">Firewall pfSense</a></li>
+                            <li><a href="#" class="cyber-button">VPN WireGuard</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li class="dropdown-item">
+                    <details>
+                        <summary>🗄️ Databases</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte2.html" class="cyber-button highlight">» SQL Injection (P2)</a></li>
+                            <li><a href="#" class="cyber-button">ER Design</a></li>
+                            <li><a href="#" class="cyber-button">NoSQL Mongo</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li class="dropdown-item">
+                    <details>
+                        <summary>💻 Programming</summary>
+                        <ul class="submenu">
+                            <li><a href="#" class="cyber-button">Port Scanner Py</a></li>
+                            <li><a href="#" class="cyber-button">API RESTful</a></li>
+                            <li><a href="#" class="cyber-button">Bash Scripting</a></li>
+                        </ul>
+                    </details>
+                </li>
+
+                <li><a href="#" class="cyber-button">📩 Contacto</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="main-body">
-      <div class="title">Presentació</div>
+    <header class="main-header">
 
-      <div class="section">
-        <div class="header">Sobre mí</div>
-        <div class="introduction">
-          <p>Estudiant de FP en Ciberseguretat y Administració de Sistemes. Apasionat per la seguretat informàtica, xarxes y l' automatizació de processos.</p>
-          <p>⬆️ ⬇️ ⬅️ ➡️</p>
+        <div class="header-left">
+            <div class="menu-trigger" onmouseover="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <a href="https://www.itb.cat" target="_blank" class="logo-link">
+                <img src="img/Logo_ITB.png" alt="ITB Logo" class="header-logo">
+            </a>
         </div>
 
-        <div class="projects">
-          <div class="project">
-            <h4>Xarxa d'enrutament a Packet Tracer</h4>
-            <p>Simulació d'una xarxa amb subxarxes de les quals estan conectades mitjançant routers, configurant enrutament.</p>
-          </div>
-          <div class="project">
-            <h4>Programa de manteniment de formularis</h4>
-            <p>Programa en Python on extreu dades d'un formulari csv, els guarda en xml y després filtra la informació no desitjada per obtemir el resultat de forma tabulada.</p>
-          </div>
+        <h1 class="header-title">CYBERSECURITY PORTFOLIO</h1>
+
+    </header>
+
+    <div id="main-container">
+
+        <div class="intro-dashboard">
+            <div class="intro-panel">
+                <div class="panel-header">
+                    <span class="status-dot"></span> USER: ADAM BEN MANSOR
+                </div>
+                <div class="panel-body">
+                    <p>My name is <strong>Adam Ben Mansor</strong>, student at ITB. currently enrolled in <strong>Networked Systems Administration</strong> with a Cybersecurity Profile (ASIXc).</p>
+                </div>
+            </div>
+
+            <div class="intro-panel">
+                <div class="panel-header">
+                    <span class="status-dot alert"></span> MISSION BRIEFING
+                </div>
+                <div class="panel-body">
+                    <p>Below, I showcase featured projects. Specifically focusing on <strong>Cisco Packet Tracer</strong> simulations and secure <strong>Logical Database Design</strong>.</p>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="page-subtitle">>> SELECT PROJECT TO INSPECT <<</div>
+
+        <div class="projects-grid">
+            <a href="projecte1.html" class="project-card">
+                <div class="card-content">
+                    <h3>PROJECT 1</h3>
+                    <p class="card-description">Auditoría Wi-Fi y simulación de red corporativa Cisco.</p>
+                </div>
+            </a>
+
+            <a href="projecte2.html" class="project-card">
+                <div class="card-content">
+                    <h3>PROJECT 2</h3>
+                    <p class="card-description">Diseño lógico de bases de datos y SQL Injection Lab.</p>
+                </div>
+            </a>
+
+            <a href="#" class="project-card">
+                <div class="card-content">
+                    <h3>PROJECT 3</h3>
+                    <p class="card-description">Scripting en Python para automatización de tareas (En desarrollo).</p>
+                </div>
+            </a>
+        </div>
     </div>
-  </div>
-  <!-- Añade esto dentro del <body>, justo antes del footer -->
-<div class="project-buttons" style="text-align: center; margin: 2em 0;">
-  <a href="projecte1.html" style="text-decoration: none; margin: 0 1em;">
-    <button style="padding: 0.8em 1.5em; font-size: 1em;">Ver Proyecto 1</button>
-  </a>
-  <a href="projecte2.html" style="text-decoration: none; margin: 0 1em;">
-    <button style="padding: 0.8em 1.5em; font-size: 1em;">Ver Proyecto 2</button>
-  </a>
-</div>
 
+    <footer>
+        <p>&copy; 2024 Adam Ben Mansor | ITB Cybersecurity Dept.</p>
+    </footer>
 
-  <footer>
-    <p> Aprovat per Legendary i cuinat, dissenyat i fet per Copilot. </p>
-  </footer>
+    <script src="java/pagina_principal.js"></script>
 
 </body>
 </html>

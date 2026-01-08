@@ -1,48 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyecto 1 | Porfolio FP</title>
-  <link rel="stylesheet" href="css/porfoli.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1 - Audit Wi-Fi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/projecte1.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">LOGO</div>
-    <h1>Porfolio de Proyectos FP</h1>
-  </header>
+    <div class="cyber-sidebar" id="sidebar" onmouseleave="closeMenu()">
+        <div class="sidebar-content">
+            <h3>NAVEGACIÓN</h3>
+            <ul>
+                <li><a href="pagina_principal.html" class="cyber-button">🏠 Inicio</a></li>
 
-  <div class="main-body">
-    <div class="title">Proyecto 1</div>
+                <li class="dropdown-item">
+                    <details>
+                        <summary>⚙️ SysAdmin</summary>
+                        <ul class="submenu">
+                            <li><a href="#" class="cyber-button">Active Directory</a></li>
+                            <li><a href="#" class="cyber-button">Hardening Web</a></li>
+                        </ul>
+                    </details>
+                </li>
 
-    <div class="section">
-      <div class="project-title">Auditoría de Seguridad en Redes</div>
+                <li class="dropdown-item">
+                    <details open>
+                        <summary>🌐 Networks</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte1.html" class="cyber-button highlight active">» Wi-Fi Audit (P1)</a></li>
+                            <li><a href="#" class="cyber-button">VLANs Cisco</a></li>
+                        </ul>
+                    </details>
+                </li>
 
-      <div class="explanation">
-        <p>Este proyecto consistió en realizar una auditoría completa de una red corporativa simulada, identificando vulnerabilidades y proponiendo soluciones.</p>
-      </div>
-
-      <div class="images">
-        <img src="img1.jpg" alt="Captura 1 del proyecto">
-        <img src="img2.jpg" alt="Captura 2 del proyecto">
-        <img src="img3.jpg" alt="Captura 3 del proyecto">
-      </div>
-
-      <div class="nav-links">
-        <a href="pagina_principal.html">Página Principal</a>
-        <a href="projecte2.html">Proyecto 2</a>
-      </div>
-
-      <div class="download">
-        <a href="descargas/proyecto1.zip" download>Descargar Proyecto 1</a>
-      </div>
+                <li class="dropdown-item">
+                    <details>
+                        <summary>🗄️ Databases</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte2.html" class="cyber-button highlight">» SQL Injection (P2)</a></li>
+                            <li><a href="#" class="cyber-button">NoSQL Mongo</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p>© 2025 Adam | FP Ciberseguridad y Sistemas</p>
-  </footer>
+    <header class="main-header">
+        <div class="header-left">
+            <div class="menu-trigger" onmouseover="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="https://www.itb.cat" target="_blank" class="logo-link">
+                <img src="img/Logo_ITB.png" alt="ITB Logo" class="header-logo">
+            </a>
+        </div>
+        <h1 class="header-title">CYBERSECURITY PORTFOLIO</h1>
+    </header>
+
+    <div id="main-container">
+
+        <a href="pagina_principal.html" class="back-link">← TORNAR A L'INICI</a>
+
+        <div class="project-details-panel">
+
+            <h2 class="project-main-title">PROJECTE 1: AUDITORIA WI-FI</h2>
+            <div class="divider-line"></div>
+
+            <section class="project-section">
+                <h3>1. Introducció i Objectius</h3>
+                <p>
+                    En aquest projecte s'ha realitzat una anàlisi exhaustiva de la seguretat en xarxes sense fils.
+                    L'objectiu principal ha estat identificar vulnerabilitats en el protocol <strong>WPA2</strong>
+                    i analitzar el trànsit de dades mitjançant eines de monitoratge.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h3>2. Eines Utilitzades</h3>
+                <ul class="tech-list">
+                    <li><span class="tech-badge">Wireshark</span> Per a la captura i anàlisi de paquets.</li>
+                    <li><span class="tech-badge">Aircrack-ng</span> Suite per a l'auditoria de xarxes sense fils.</li>
+                    <li><span class="tech-badge">Kali Linux</span> Sistema operatiu base per a les proves.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h3>3. Procés Tècnic</h3>
+                <p>El primer pas va ser posar la targeta de xarxa en <strong>mode monitor</strong> per capturar tot el trànsit:</p>
+
+                <div class="code-terminal">
+                    <div class="terminal-header">terminal@kali:~$</div>
+                    <pre><code>sudo airmon-ng start wlan0
+sudo airodump-ng wlan0mon</code></pre>
+                </div>
+
+                <p style="margin-top: 15px;">
+                    A continuació, es va procedir a la captura del <strong>Handshake</strong> per comprovar la robustesa de la contrasenya.
+                    Els resultats van demostrar que l'ús de diccionaris comuns permet l'accés en menys de 5 minuts.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h3>4. Conclusions</h3>
+                <div class="conclusion-box">
+                    <p>
+                        És crític implementar contrasenyes robustes i, si és possible, utilitzar certificats digitals
+                        (<strong>WPA2-Enterprise</strong>) en lloc de claus compartides (PSK) en entorns corporatius.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adam Ben Mansor | ITB Cybersecurity Dept.</p>
+    </footer>
+
+    <script src="java/projecte1.js"></script>
 
 </body>
 </html>

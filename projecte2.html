@@ -1,48 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proyecto 1 | Porfolio FP</title>
- <link rel="stylesheet" href="css/porfoli.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 - SQL & DB Design</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/projecte2.css">
 </head>
 <body>
 
-  <header>
-    <div class="logo">LOGO</div>
-    <h1>Porfolio de Proyectos FP</h1>
-  </header>
+    <div class="cyber-sidebar" id="sidebar" onmouseleave="closeMenu()">
+        <div class="sidebar-content">
+            <h3>NAVEGACIÓ</h3>
+            <ul>
+                <li><a href="pagina_principal.html" class="cyber-button">🏠 Inicio</a></li>
 
-  <div class="main-body">
-    <div class="title">Proyecto 1</div>
+                <li class="dropdown-item">
+                    <details>
+                        <summary>⚙️ SysAdmin</summary>
+                        <ul class="submenu">
+                            <li><a href="#" class="cyber-button">Active Directory</a></li>
+                            <li><a href="#" class="cyber-button">Hardening Web</a></li>
+                        </ul>
+                    </details>
+                </li>
 
-    <div class="section">
-      <div class="project-title">Auditoría de Seguridad en Redes</div>
+                <li class="dropdown-item">
+                    <details>
+                        <summary>🌐 Networks</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte1.html" class="cyber-button">Wi-Fi Audit (P1)</a></li>
+                            <li><a href="#" class="cyber-button">VLANs Cisco</a></li>
+                        </ul>
+                    </details>
+                </li>
 
-      <div class="explanation">
-        <p>Este proyecto consistió en realizar una auditoría completa de una red corporativa simulada, identificando vulnerabilidades y proponiendo soluciones.</p>
-      </div>
-
-      <div class="images">
-        <img src="img1.jpg" alt="Captura 1 del proyecto">
-        <img src="img2.jpg" alt="Captura 2 del proyecto">
-        <img src="img3.jpg" alt="Captura 3 del proyecto">
-      </div>
-
-      <div class="nav-links">
-        <a href="pagina_principal.html">Página Principal</a>
-        <a href="projecte1.html">Proyecto 1</a>
-      </div>
-
-      <div class="download">
-        <a href="descargas/proyecto1.zip" download>Descargar Proyecto 1</a>
-      </div>
+                <li class="dropdown-item">
+                    <details open>
+                        <summary>🗄️ Databases</summary>
+                        <ul class="submenu">
+                            <li><a href="projecte2.html" class="cyber-button highlight active">» SQL Injection (P2)</a></li>
+                            <li><a href="#" class="cyber-button">NoSQL Mongo</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <footer>
-    <p>© 2025 Adam | FP Ciberseguridad y Sistemas</p>
-  </footer>
+    <header class="main-header">
+        <div class="header-left">
+            <div class="menu-trigger" onmouseover="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="https://www.itb.cat" target="_blank" class="logo-link">
+                <img src="img/Logo_ITB.png" alt="ITB Logo" class="header-logo">
+            </a>
+        </div>
+        <h1 class="header-title">CYBERSECURITY PORTFOLIO</h1>
+    </header>
+
+    <div id="main-container">
+
+        <a href="pagina_principal.html" class="back-link">← TORNAR A L'INICI</a>
+
+        <div class="project-details-panel">
+
+            <h2 class="project-main-title">PROJECTE 2: DB SECURITY & SQLi</h2>
+            <div class="divider-line"></div>
+
+            <section class="project-section">
+                <h3>1. Objectius del Projecte</h3>
+                <p>
+                    Aquest projecte se centra en el disseny lògic segur de bases de dades relacionals i la prevenció d'atacs d'injecció SQL (<strong>SQLi</strong>).
+                    Es busca garantir la integritat de les dades mitjançant la normalització i l'ús de consultes parametritzades.
+                </p>
+            </section>
+
+            <section class="project-section">
+                <h3>2. Stack Tecnològic</h3>
+                <ul class="tech-list">
+                    <li><span class="tech-badge">MySQL / MariaDB</span> Motor de base de dades relacional.</li>
+                    <li><span class="tech-badge">Burp Suite</span> Eina per interceptar peticions i testejar SQLi.</li>
+                    <li><span class="tech-badge">PHP Data Objects</span> Implementació segura de connexions (PDO).</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h3>3. Anàlisi de Vulnerabilitat (PoC)</h3>
+                <p>Es va demostrar com un codi legacy sense sanejament permetia l'accés administratiu saltant-se l'autenticació.</p>
+
+                <p><strong>Vector d'Atac (Payload):</strong></p>
+                <div class="code-terminal">
+                    <div class="terminal-header">input_login_field</div>
+                    <pre><code>' OR 1=1 -- // Comentari per anul·lar la contrasenya</code></pre>
+                </div>
+
+                <p><strong>Codi Vulnerable (PHP):</strong></p>
+                <div class="code-terminal" style="border-color: #ef4444;"> <div class="terminal-header">vulnerable_login.php</div>
+                    <pre><code style="color: #ef4444;">$sql = "SELECT * FROM users WHERE user = '" . $user . "'";
+// Aquest codi concatena cadenes directament -> INSEGUR</code></pre>
+                </div>
+
+                <p><strong>Solució Implementada (Prepared Statements):</strong></p>
+                <div class="code-terminal" style="border-color: #22c55e;"> <div class="terminal-header">secure_login.php</div>
+                    <pre><code style="color: #22c55e;">$stmt = $pdo->prepare('SELECT * FROM users WHERE user = :user');
+$stmt->execute(['user' => $input_user]);
+// L'ús de paràmetres evita la injecció SQL.</code></pre>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h3>4. Conclusions</h3>
+                <div class="conclusion-box">
+                    <p>
+                        El disseny de la base de dades ha de seguir les formes normals (1NF, 2NF, 3NF) per evitar redundància,
+                        però la seguretat recau en la capa d'aplicació: <strong>mai s'ha de confiar en l'input de l'usuari</strong>.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adam Ben Mansor | ITB Cybersecurity Dept.</p>
+    </footer>
+
+    <script src="java/projecte2.js"></script>
 
 </body>
 </html>
