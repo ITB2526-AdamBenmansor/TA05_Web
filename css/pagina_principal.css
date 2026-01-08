@@ -212,3 +212,45 @@ body.is-menu-open > *:not(#sidebar) {
 body > *:not(#sidebar) {
     transition: filter 0.4s ease;
 }
+
+/* --- AÑADIR AL FINAL DE pagina_principal.css --- */
+
+/* Ajuste para que los botones dentro de los paneles de lista se vean mejor */
+.intro-panel .cyber-button {
+    background: rgba(15, 23, 42, 0.6); /* Un poco más oscuros para resaltar */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 8px;
+}
+
+.intro-panel .cyber-button:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: var(--accent);
+}
+/* =======================================================
+   EFECTO DE CLICK INTENSO (GREEN FLASH)
+   ======================================================= */
+
+.project-card:active {
+    /* 1. Fondo: Un verde semitransparente para tintar toda la caja */
+    background-color: rgba(34, 197, 94, 0.2) !important;
+
+    /* 2. Borde: Verde neón sólido */
+    border-color: #22c55e !important;
+
+    /* 3. Sombras: Doble brillo (uno hacia fuera y otro hacia dentro) */
+    box-shadow:
+        0 0 30px rgba(34, 197, 94, 0.6),      /* Brillo exterior fuerte */
+        inset 0 0 20px rgba(34, 197, 94, 0.4) /* Brillo interior */
+        !important;
+
+    /* 4. Movimiento: Se hunde un poco para dar sensación de pulsación */
+    transform: scale(0.98) translateY(2px) !important;
+}
+
+/* Forzamos que el título y el texto también se pongan verdes al pulsar */
+.project-card:active h3,
+.project-card:active .card-description,
+.project-card:active strong {
+    color: #22c55e !important;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.8) !important;
+}
