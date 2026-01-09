@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Secure Channel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/pagina_principal.css">
+    <link rel="stylesheet" href="css/Formulari.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-left">
+
+            <div class="menu-trigger" id="sidebarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <a href="https://www.itb.cat" target="_blank" class="logo-link">
+                <img src="img/Logo_ITB.png" alt="ITB Logo" class="header-logo">
+            </a>
+
+        </div>
+        <h1 class="header-title">SECURE COMM CHANNEL</h1>
+    </header>
+
+    <nav id="sidebar" class="cyber-sidebar">
+        <div class="sidebar-content">
+            <h3>NAVIGATION</h3>
+            <ul>
+                <li><a href="index.html" class="cyber-button">🏠 Inicio</a></li>
+                <li><a href="Lista_proyectos.html" class="cyber-button">📂 Project List</a></li>
+                <br>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main-container" class="contact-container">
+
+        <div class="form-wrapper">
+            <div class="form-header">
+                <h2>ESTABLISH CONNECTION</h2>
+                <p>Send encrypted data to Admin</p>
+            </div>
+
+            <form id="contactForm">
+                <div class="input-group">
+                    <label for="nombre">>> IDENTIFIER (Name & Surname)</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ex: Javitxu Vitxu" required autocomplete="off">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">>> DIGITAL ADDRESS (Email)</label>
+                    <input type="email" id="email" name="email" placeholder="user@domain.com" required autocomplete="off">
+                </div>
+
+               <div class="input-group">
+                    <label for="telefono">>> COMM LINK (Phone Number)</label>
+
+                    <div class="phone-container">
+                        <select id="prefijo" name="prefijo" class="cyber-select">
+                            <option value="+34">🇪🇸 +34</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+44">🇬🇧 +44</option>
+                            <option value="+33">🇫🇷 +33</option>
+                            <option value="+49">🇩🇪 +49</option>
+                            </select>
+
+                        <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" autocomplete="off">
+                    </div>
+                    <small class="validation-hint">Must be exactly 9 digits.</small>
+                </div>
+
+                <button type="submit" id="submitBtn" class="cyber-button submit-btn" disabled>
+                    🔒 AWAITING VALID DATA...
+                </button>
+            </form>
+
+            <div id="formStatus" class="status-message"></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adam Ben Mansor | ITB Cybersecurity Dept.</p>
+    </footer>
+
+    <script src="java/Formulari.js"></script>
+
+</body>
+</html>

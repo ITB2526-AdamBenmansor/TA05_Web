@@ -142,12 +142,53 @@ details > summary:hover { background: rgba(255,255,255,0.05); }
 .project-card:hover h3 { color: var(--accent); transform: translateY(-5px); }
 .project-card:hover .card-description { opacity: 1; transform: translateY(0); height: auto; }
 
-/* MÓVIL */
+/* =========================================
+   RESPONSIVE PARA MÓVIL (FINAL DE PAGINA_PRINCIPAL.CSS)
+   ========================================= */
+
 @media (max-width: 768px) {
-    .main-header { height: 100px; padding: 0 1rem; }
-    .header-left { position: relative; left: 0; }
-    .header-title { display: none; }
-    .header-logo { width: 80px; }
+
+    /* 1. Cambiamos el Header para que sea una columna (vertical) */
+    .main-header {
+        height: auto; /* Dejar que crezca lo necesario */
+        min-height: 120px;
+        padding: 20px 10px;
+        flex-direction: column; /* Elementos uno debajo de otro */
+        justify-content: center;
+        gap: 15px; /* Espacio entre la fila de botones y el título */
+    }
+
+    /* 2. Ajustamos el bloque de botones/logo (Izquierda) */
+    .header-left {
+        position: relative; /* Ya no es absoluto, ahora ocupa espacio real */
+        left: 0;
+        width: 100%;
+        justify-content: center; /* Centramos el logo y el botón volver */
+        margin: 0;
+    }
+
+    /* 3. HACEMOS VISIBLE EL TÍTULO Y AJUSTAMOS TAMAÑO */
+    .header-title {
+        display: block !important; /* ¡IMPORTANTE! Forzamos que se vea */
+        font-size: 1.3rem; /* Tamaño mucho más pequeño para que quepa */
+        line-height: 1.2;
+        width: 100%;
+        position: static; /* Quitamos posición absoluta */
+        margin: 0;
+        white-space: normal; /* Permitir que el texto baje de línea si no cabe */
+        padding: 0 10px;
+    }
+
+    /* 4. Reducimos un poco el logo para ganar espacio */
+    .header-logo {
+        width: 100px;
+    }
+
+    /* Ajuste para que los botones no sean gigantes */
+    .cyber-button {
+        font-size: 0.85rem !important;
+        padding: 8px 10px !important;
+    }
 }
 footer { text-align: center; padding: 2rem; color: #475569; margin-top: auto; }
 
