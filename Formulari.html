@@ -50,7 +50,8 @@
                 <p>Send encrypted data to Admin</p>
             </div>
 
-            <form id="contactForm">
+           <form id="contactForm">
+
                 <div class="input-group">
                     <label for="nombre">>> IDENTIFIER (Name & Surname)</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Ex: Javitxu Vitxu" required autocomplete="off">
@@ -61,7 +62,7 @@
                     <input type="email" id="email" name="email" placeholder="user@domain.com" required autocomplete="off">
                 </div>
 
-               <div class="input-group">
+                <div class="input-group">
                     <label for="telefono">>> COMM LINK (Phone Number)</label>
 
                     <div class="phone-container">
@@ -71,11 +72,15 @@
                             <option value="+44">🇬🇧 +44</option>
                             <option value="+33">🇫🇷 +33</option>
                             <option value="+49">🇩🇪 +49</option>
-                            </select>
+                        </select>
 
                         <input type="tel" id="telefono" name="telefono" placeholder="600123456" maxlength="9" autocomplete="off">
                     </div>
                     <small class="validation-hint">Must be exactly 9 digits.</small>
+                </div>
+                <div class="input-group">
+                    <label for="mensaje">>> TRANSMISSION DATA (Message)</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Enter classified information here..." required></textarea>
                 </div>
 
                 <button type="submit" id="submitBtn" class="cyber-button submit-btn" disabled>
