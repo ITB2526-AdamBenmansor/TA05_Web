@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +14,9 @@
 
     <div class="cyber-sidebar" id="sidebar" onmouseleave="closeMenu()">
         <div class="sidebar-content">
-            <h3>NAVEGACIÓ</h3>
+            <h3>NAVIGATION</h3>
             <ul>
-                <li><a href="index.html" class="cyber-button">🏠 Inicio</a></li>
+                <li><a href="index.html" class="cyber-button">🏠 START</a></li>
 
                 <li class="dropdown-item">
                     <details>
@@ -67,33 +67,24 @@
 
     <div id="main-container">
 
-        <a href="index.html" class="back-link">← TORNAR A L'INICI</a>
+        <a href="index.html" class="back-link">← RETURN TO MAIN PAGE</a>
 
         <div class="project-details-panel">
 
-            <h2 class="project-main-title">PROJECTE 2: DB SECURITY & SQLi</h2>
+            <h2 class="project-main-title">PROJECT 2: DB SECURITY & SQLi</h2>
             <div class="divider-line"></div>
 
             <section class="project-section">
-                <h3>1. Objectius del Projecte</h3>
+                <h3>1. Objectives of the Project</h3>
                 <p>
-                    Aquest projecte se centra en el disseny lògic segur de bases de dades relacionals i la prevenció d'atacs d'injecció SQL (<strong>SQLi</strong>).
-                    Es busca garantir la integritat de les dades mitjançant la normalització i l'ús de consultes parametritzades.
+                    This project focuses on the secure logical design of relational databases and the prevention of SQL injection <strong> (SQLi) </strong>
+                    The goal is to ensure data integrity through normalization and the use of parameterized queries
                 </p>
             </section>
 
             <section class="project-section">
-                <h3>2. Stack Tecnològic</h3>
-                <ul class="tech-list">
-                    <li><span class="tech-badge">MySQL / MariaDB</span> Motor de base de dades relacional.</li>
-                    <li><span class="tech-badge">Burp Suite</span> Eina per interceptar peticions i testejar SQLi.</li>
-                    <li><span class="tech-badge">PHP Data Objects</span> Implementació segura de connexions (PDO).</li>
-                </ul>
-            </section>
-
-            <section class="project-section">
-                <h3>3. Anàlisi de Vulnerabilitat (PoC)</h3>
-                <p>Es va demostrar com un codi legacy sense sanejament permetia l'accés administratiu saltant-se l'autenticació.</p>
+                <h3>2. Vulnerability Analysis (PoC)</h3>
+                <p>It was demonstrated how legacy code without sanitization allowed administrative access by bypassing authentication.</p>
 
                 <p><strong>Vector d'Atac (Payload):</strong></p>
                 <div class="code-terminal">
@@ -101,26 +92,26 @@
                     <pre><code>' OR 1=1 -- // Comentari per anul·lar la contrasenya</code></pre>
                 </div>
 
-                <p><strong>Codi Vulnerable (PHP):</strong></p>
+                <p><strong>Vulnerable Code (PHP):</strong></p>
                 <div class="code-terminal" style="border-color: #ef4444;"> <div class="terminal-header">vulnerable_login.php</div>
                     <pre><code style="color: #ef4444;">$sql = "SELECT * FROM users WHERE user = '" . $user . "'";
-// Aquest codi concatena cadenes directament -> INSEGUR</code></pre>
+// This code concatenates strings directly -> UNSAFE</code></pre>
                 </div>
 
-                <p><strong>Solució Implementada (Prepared Statements):</strong></p>
+                <p><strong>Solution Implemented (Prepared Statements):</strong></p>
                 <div class="code-terminal" style="border-color: #22c55e;"> <div class="terminal-header">secure_login.php</div>
                     <pre><code style="color: #22c55e;">$stmt = $pdo->prepare('SELECT * FROM users WHERE user = :user');
 $stmt->execute(['user' => $input_user]);
-// L'ús de paràmetres evita la injecció SQL.</code></pre>
+// Using parameters prevents SQL injection.</code></pre>
                 </div>
             </section>
 
             <section class="project-section">
-                <h3>4. Conclusions</h3>
+                <h3>3. Conclusions</h3>
                 <div class="conclusion-box">
                     <p>
-                        El disseny de la base de dades ha de seguir les formes normals (1NF, 2NF, 3NF) per evitar redundància,
-                        però la seguretat recau en la capa d'aplicació: <strong>mai s'ha de confiar en l'input de l'usuari</strong>.
+                        Database design should follow normal forms (1NF, 2NF, 3NF) to avoid redundancy,
+but security lies at the application layer: <strong>user input should never be trusted</strong>.
                     </p>
                 </div>
             </section>
@@ -129,7 +120,7 @@ $stmt->execute(['user' => $input_user]);
     </div>
 
     <footer>
-        <p>&copy; 2024 Adam Ben Mansor | ITB Cybersecurity Dept.</p>
+        <p><strong>&copy; 2026 Adam Ben Mansor | ITB Ciberseceurity Department.</strong></p>
     </footer>
 
     <script src="java/projecte2.js"></script>
